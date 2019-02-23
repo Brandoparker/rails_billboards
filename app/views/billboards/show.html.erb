@@ -1,0 +1,14 @@
+<div class="ui card">
+  
+  <div class="content">
+    <p class="header">
+      <%= @billboard.name %>
+    </p>
+  </div>
+ </div>
+ <div class="extra content">
+   <%= link_to 'Edit', edit_billboard_path(@billboard) %> |
+   <%= link_to "View Songs", billboard_songs_path(@billboard) %> |
+   <%= link_to 'Back', billboards_path %>    
+ </div>
+</div>

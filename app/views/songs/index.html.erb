@@ -1,0 +1,7 @@
+<h1>Click a Song To View It</h1>
+<%= link_to 'Add Song', new_billboard_song_path(@billboard) %>
+<ul>
+  <% @songs.each do |song| %>
+    <li><%= link_to song.title, [@billboard, song] %></li>
+  <% end %>
+</ul>
