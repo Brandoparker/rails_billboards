@@ -1,7 +1,12 @@
-<h1>Click a Song To View It</h1>
-<%= link_to 'Add Song', new_billboard_song_path(@billboard) %>
-<ul>
-  <% @songs.each do |song| %>
-    <li><%= link_to song.title, [@billboard, song] %></li>
-  <% end %>
-</ul>
+<h1>All Songs on this Chart</h1>
+<%= link_to 'Add Song', new_billboard_song_path(@billboard) %> |
+
+<% @songs.each do |song| %>
+  <h1><%= song.title %></h1>
+    <li><%= link_to song.title, [@billboard, song] %></li> |
+<% end %>
+
+<%= link_to 'Back To Billboards', billboard_path(@billboard) %>
+
+
+
