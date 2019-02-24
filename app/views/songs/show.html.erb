@@ -3,6 +3,13 @@
 <h4>Artist: <%= @song.artist %></h4>
 <br />
 
+
+
+
+<%= link_to 'Add Artist', new_song_artist_path(@song), class: "ui button blue" %>
+<br />
+<br />
+
 <%= link_to 'Edit Song', edit_billboard_song_path([@billboard, @song]) %> |
 <%= link_to 'Delete Song', [@billboard, @song], method: :delete %> |
 <%= link_to 'Back To Songs', billboard_songs_path(@billboard) %>
