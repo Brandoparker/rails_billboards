@@ -3,10 +3,14 @@
 <h4>Artist: <%= @song.artist %></h4>
 <br />
 
+<h2>Comments</h2>
+<% @song.comments.each do |comment| %>
+  <%= render 'comments/comment', { comment: comment } %>
+<% end %>
+<br />
 
 
-
-<%= link_to 'Add Artist', new_song_artist_path(@song), class: "ui button blue" %>
+<%= link_to 'Add Comment', new_song_comment_path(@song), class: "ui button blue" %>
 <br />
 <br />
 

@@ -10,22 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_23_213417) do
+ActiveRecord::Schema.define(version: 2019_02_24_022158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "billboards", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.string "author"
+    t.bigint "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_comments_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -37,5 +39,6 @@ ActiveRecord::Schema.define(version: 2019_02_23_213417) do
     t.index ["billboard_id"], name: "index_songs_on_billboard_id"
   end
 
+  add_foreign_key "comments", "songs"
   add_foreign_key "songs", "billboards"
 end
